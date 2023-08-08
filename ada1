@@ -1,0 +1,46 @@
+import numpy as np
+
+def criar_matriz():
+    return np.random.randint(1, 100, size=(4, 4))
+
+def estatisticas(mat):
+    print("Média das linhas:", np.mean(mat, axis=1))
+    print("Soma das colunas:", np.sum(mat, axis=0))
+    print("Desvio padrão geral:", np.std(mat))
+
+def transposta_e_operacao(mat):
+    transp = np.transpose(mat)
+    return transp - 5
+
+def produto_escalar(mat1, mat2):
+    return np.dot(mat1, mat2)
+
+def filtrar_matriz(mat):
+    return mat[mat > np.median(mat)]
+
+def operacao_aritmetica(mat):
+    return mat + np.random.randint(1, 10)
+
+# Execução
+matriz = criar_matriz()
+print("Matriz original:")
+print(matriz)
+print("\n")
+
+estatisticas(matriz)
+
+print("\nTransposta com operação:")
+print(transposta_e_operacao(matriz))
+print("\n")
+
+matriz_c = np.random.randint(1, 100, size=(4, 4))
+print("Produto escalar com matriz aleatória:")
+print(produto_escalar(matriz, matriz_c))
+print("\n")
+
+print("Elementos maiores que a mediana:")
+print(filtrar_matriz(matriz))
+print("\n")
+
+print("Operação aritmética:")
+print(operacao_aritmetica(matriz))
